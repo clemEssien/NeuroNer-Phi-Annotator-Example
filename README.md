@@ -64,7 +64,15 @@ configures NeuroNer to run offline.
 ## Requirements
 
 - [Docker Engine] >=19.03.0
-- Download word embeddings from http://neuroner.com/data/word_vectors/glove.6B.100d.zip, unzip them to the folder /server/word_vectors
+- Run the program:
+  ```
+  from neuroner import neuromodel
+
+  neuromodel.fetch_data('example_unannotated_texts')
+  neuromodel.fetch_data('i2b2_2014_deid')
+  ```
+  Ensure that 'example_unannotated_texts' and 'i2b2_2014_deid' are placed in /server/openapi_server/data/ directory
+- Download word embeddings from http://neuroner.com/data/word_vectors/glove.6B.100d.zip, unzip them to the folder /server/openapi_server/data/word_vectors
 
 
 ## Usage
