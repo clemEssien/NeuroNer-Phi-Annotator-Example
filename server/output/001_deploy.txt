@@ -1,0 +1,25 @@
+On temp_00001 0 2 O O
+12/26/2020 temp_00001 3 13 O B-DATE
+, temp_00001 13 14 O O
+Ms. temp_00001 15 18 O O
+Chloe temp_00001 19 24 O O
+Price temp_00001 25 30 O O
+met temp_00001 31 34 O O
+with temp_00001 35 39 O O
+Dr. temp_00001 40 43 O O
+Prescott temp_00001 44 52 O O
+in temp_00001 53 55 O O
+Seattle temp_00001 56 63 O O
+. temp_00001 63 64 O O
+
+Her temp_00001 65 68 O O
+phone temp_00001 69 74 O O
+number temp_00001 75 81 O O
+is temp_00001 82 84 O O
+203 temp_00001 85 88 O B-PHONE
+- temp_00001 88 89 O I-PHONE
+555 temp_00001 89 92 O I-PHONE
+- temp_00001 92 93 O I-PHONE
+4545 temp_00001 93 97 O I-PHONE
+. temp_00001 97 98 O O
+

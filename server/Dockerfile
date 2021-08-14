@@ -1,4 +1,4 @@
-FROM python:3.9.6-slim-buster
+FROM python:3.6
 
 ENV APP_DIR=/opt/app
 
@@ -17,10 +17,14 @@ RUN apt-get update -qq -y \
 
 WORKDIR ${APP_DIR}
 COPY openapi_server openapi_server/
-COPY data data/
+
 COPY requirements.txt prod-requirements.txt uwsgi.ini ./
+
 RUN pip install --no-cache-dir \
-    -r requirements.txt -r prod-requirements.txt
+    -r requirements.txt -r prod-requirements.txt \
+    && python -m spacy download en \
+    && useradd --create-home --shell /bin/bash nlp \
+    && chown -R nlp:nlp ${APP_DIR}
 
 WORKDIR /
 COPY docker-entrypoint.sh .
@@ -28,7 +32,9 @@ RUN chmod +x docker-entrypoint.sh
 
 EXPOSE 8080
 
-ENTRYPOINT ["/docker-entrypoint.sh"]
+RUN echo 'uwsgi_read_timeout 300s > /etc/nginx/conf.d/custom_timeout.conf'
+
+ENTRYPOINT ["/docker-entrypoint.sh"]    
 
 # Run server in development mode
 # CMD ["python", "-m", "openapi_server"]

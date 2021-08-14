@@ -5,3 +5,7 @@ node_modules/
 .env
 dist.yaml
 openapi.yaml
+server/openapi_server/data
+server/word_vectors
+server/openapi_server/output
+server/openapi_server/trained_models
