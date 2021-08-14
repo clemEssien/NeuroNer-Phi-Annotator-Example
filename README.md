@@ -63,6 +63,7 @@ configures NeuroNer to run offline.
 ## Requirements
 
 - [Docker Engine] >=19.03.0
+- Python 3.6
 - Run the program:
 
   ```
