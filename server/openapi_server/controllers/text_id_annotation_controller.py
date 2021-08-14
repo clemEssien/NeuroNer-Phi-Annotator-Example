@@ -1,10 +1,10 @@
 import connexion
-import re
 from openapi_server.models.error import Error  # noqa: E501
 from openapi_server.models.text_id_annotation_request import TextIdAnnotationRequest  # noqa: E501
 from openapi_server.models.text_id_annotation import TextIdAnnotation
 from openapi_server.models.text_id_annotation_response import TextIdAnnotationResponse  # noqa: E501
 from openapi_server import neuro_model as model
+
 
 def create_text_id_annotations(text_id_annotation_request=None):  # noqa: E501
     """Annotate IDs in a clinical note
@@ -38,16 +38,16 @@ def add_id_annotation(annotations, matches):
     annotations array specified.
     """
     id_map = {
-        "BIOID":"bio_id",
+        "BIOID": "bio_id",
         "IDNUM": "id_number",
-        "MEDICALRECORD" :"medical_record",
-        "MEDICAL RECORD" :"medical_record",
-        "MEDICAL_RECORD" :"medical_record",
+        "MEDICALRECORD": "medical_record",
+        "MEDICAL RECORD": "medical_record",
+        "MEDICAL_RECORD": "medical_record",
         "SSN": "ssn",
         "DEVICE": "device",
         "ACCOUNT": "account",
         "LICENSE": "license"
-    } 
+    }
     for match in matches:
         if match['type'] in id_map.keys():
             annotations.append(TextIdAnnotation(

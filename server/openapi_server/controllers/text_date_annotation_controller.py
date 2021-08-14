@@ -9,6 +9,7 @@ from openapi_server.models.text_date_annotation_response import \
     TextDateAnnotationResponse  # noqa: E501
 from openapi_server import neuro_model as model
 
+
 def create_text_date_annotations():  # noqa: E501
     """Annotate dates in a clinical note
 
@@ -24,7 +25,7 @@ def create_text_date_annotations():  # noqa: E501
                 connexion.request.get_json())  # noqa: E501
             note = annotation_request._note
             annotations = []
-            matches = model.predict(note._text)     
+            matches = model.predict(note._text)
             add_date_annotation(annotations, matches)
             res = TextDateAnnotationResponse(annotations)
             status = 200
@@ -59,6 +60,7 @@ def add_date_annotation(annotations, matches):
                 date_format=match['type'].lower(),
                 confidence=95.5
             ))
+
 
 def get_date_format(date_str):
     date_pattern = {"MM/DD/YYYY": "([1-9]|0[1-9]|1[0-2])(/)\
